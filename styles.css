@@ -1,62 +1,218 @@
-/* make space at the top of the screen for the navigation bar */
-body {
-  padding-top: 28px;
-  font-family: "Arial", "Helvetica", "sans-serif";
-}
-
-body p {
-  color: #555;
-}
-
-/* overflow:hidden is added to the ul element to prevent li elements from going outside of the list */
-
-ul {
-  list-style-type: none;
+/* CSS RESET */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background-color: #772a18;
-  position: fixed;
-  top: 0;
-  width: 100%;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
-
-li {
-  float: left;
-}
-
-/* A background color is added to the links to show the link area. The whole link area is clickable, not just the text */
-li a {
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
-  padding: 8px;
-  text-decoration: none;
-  color: #fff;
-  border-right: 1px solid #f7faf9;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-/* The background color of links changes when the cursor hovers over them */
-a:hover {
-  background-color: #000;
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #fff;
+    background: #000;
+    font-family: "Inter", sans-serif;
+  }
+  a:link {
+    color: #9cf;
+  }
+  a:hover,
+  a:visited:hover {
+    color: #cef;
+  }
+  a:visited {
+    color: #c9f;
+  }
+}
+body {
+  margin: 1em auto;
+  max-width: 40em;
+  padding: 0 0.62em;
+  font: 1.2em/1.62;
+}
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+  font-family: "Inter", sans-serif;
+  padding-bottom: 10px;
 }
 
-/* Image gallery */
-div.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 180px;
-}
-
-div.gallery:hover {
-  border: 1px solid #777;
-}
-
-div.gallery img {
-  width: 100%;
-  height: auto;
-}
-
-div.desc {
-  padding: 15px;
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
   text-align: center;
+}
+
+header {
+  padding: 16px;
+}
+
+.body-content {
+  padding: 16px;
+}
+
+p {
+  font-family: "Inter", sans-serif;
+  color: #555;
+  font-weight: 400;
+}
+
+@media print {
+  body {
+    max-width: none;
+  }
+}
+
+/* Menu */
+
+ul {
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 5px;
+}
+ul li a {
+  text-decoration: none;
+  color: #555;
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  padding: 7px 15px;
+  overflow: hidden;
+}
+ul li a::before {
+  content: "";
+  position: absolute;
+  top: calc(100% - 2px);
+  left: -50%;
+  width: 30%;
+  height: 2px;
+  background: #222;
+  transition: 0.5s;
+}
+ul li a:hover::before {
+  left: 50%;
 }
